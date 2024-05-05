@@ -15,14 +15,14 @@ async function getGroqChatCompletion() {
         messages: [
             {
                 role: "system",
-                content: "You  are ChatBot helpful assistant!"
+                content: "You  are Apollo helpful assistant!"
             },
             {
                 role: "user",
                 content: "Explain the importance of fast language models"
             }
         ],
-        temperature: 0,
+        temperature: 0.5,
         model: "llama3-70b-8192"
     });
 }
@@ -31,7 +31,7 @@ async function groqChat(txt) {
         messages: [
             {
                 role: "system",
-                content: "You  are ChatBot helpful assistant!"
+                content: "You  are Apollo helpful assistant!"
             },
             {
                 role: "user",
@@ -39,7 +39,7 @@ async function groqChat(txt) {
             }
         ],
         temperature: 0,
-        max_tokens:1000,
+        max_tokens:8192,
         model: "llama3-70b-8192"
     });
 }

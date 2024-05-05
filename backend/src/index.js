@@ -4,11 +4,7 @@ const mongoose = require('mongoose');
 const auth = require("./routes/auth.js");
 const groq = require("./routes/groq.js");
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-
 require('dotenv').config();
-
 const app = express();
 const port = process.env.PORT || 5000;
 
