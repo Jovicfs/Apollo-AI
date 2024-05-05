@@ -1,8 +1,3 @@
-
-
-
-
-
 document.getElementById('sendmsg').addEventListener('click', async function () {
     const text = document.getElementById('userMsg').value;
     document.getElementById('chatHistory').innerHTML += `
@@ -15,10 +10,7 @@ document.getElementById('sendmsg').addEventListener('click', async function () {
         </div>
     </div>
     `;
- 
-
-
-    
+   
     const output = await fetch('http://localhost:3333/groq-chat', {
         method: 'POST',
         headers: {
