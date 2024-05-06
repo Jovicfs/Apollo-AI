@@ -29,8 +29,13 @@ mongoose.connect(mongoUri, {
 
 
 app.post('/groq-chat', async (req, res) => {
-    const aiOutput = await groq.groqChat(req.body.text);
-    res.send(aiOutput.choices[0].message.content)
+    // get the user auth token from the cookies
+    
+    // check if the user auth token is valid
+    // only allow access to the code below if the user token is valid (logged in)
+    const userID = "my-user-id";
+    const aiOutput = await groq.groqChat(req.body.text, userID);
+    res.send(aiOutput)
 });
 
 app.use("/auth", auth); // Mount the auth routes

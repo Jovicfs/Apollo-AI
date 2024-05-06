@@ -28,7 +28,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Rota de Login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -44,6 +43,13 @@ router.post('/login', async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+    // Set HTTP-only secure cookie
+    res.cookie('token', token, { 
+        httpOnly: true,
+        secure: true, // Cookie will be sent only over HTTPS
+        sameSite: 'strict' // Cookie will be sent only for same-site requests
+    });
 
     res.json({ message: 'Login efetuado com sucesso!', token });
   } catch (error) {

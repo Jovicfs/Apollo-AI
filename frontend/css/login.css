@@ -1,19 +1,85 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #34363e;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: "Arimo", sans-serif;
+}
+
+
+   /* Estilos CSS para a mensagem */
+   .welcome-message {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-message h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.welcome-message p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.register-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register-link:hover {
+    color: #0056b3;
+}
+
+#img-login {
+    position: absolute;
+    margin: 5px;
+    top: 1%;
+    right: 0;
+    min-width: 200px;
+    width: 15%;
+    border-radius: 50%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border: 6px solid rgb(234, 236, 234);
+}
+
+.ballon {
+    max-width: 18vw;
+    font-size: 1.5ex;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    text-align: start;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    top: 10%;
+    right: 17%;
+    margin: 0 auto;
+    background-color: #128c7e;
 }
 
 .container {
+    margin-right: 250px;
     min-width: 350px;
-    background-color: #fff;
+    max-width: 80%; /* Adjust as needed */
+    color: #34363e;
+    background-color: #ece7e5;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: rgb(131,193,205) 0px 6px, rgb(94, 191, 211) 0px 6px, rgb(75, 184, 206)0px 6px, rgb(39, 165, 190) 0px 12px, rgb(28, 153, 179) 0px 15px;
 }
 
 h2 {
@@ -27,28 +93,75 @@ form {
 }
 
 label {
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: -15px;
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 6px, rgba(0, 0, 0, 0.4) 0px 2px 5px -6px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    outline: none;
 }
 
 button[type="submit"] {
     padding: 10px 20px;
-    background-color: #25d366;
+    background-color: rgb(77, 103, 120);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 1px, rgba(0, 0, 0, 0.4) 0px 2px 5px -6px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
+}
+
+button {
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 5px 15px rgb(75, 184, 206);
 }
 
 button[type="submit"]:hover {
     background-color: #128c7e;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    img{
+        display: block;
+    }
+     .ballon{
+        display: flex;
+     }
+
+    .container {
+        padding: 10px;
+    }
+    
+    /* Add more media query adjustments as needed */
+}
+@media screen and (max-width: 1256px) {
+    /* Adjust styles for smaller screens */
+    img{
+        display: none;
+    }
+     .ballon{
+        display: none;
+     }
+
+    .container {
+        padding: 10px;
+    }
+    
+    /* Add more media query adjustments as needed */
 }
