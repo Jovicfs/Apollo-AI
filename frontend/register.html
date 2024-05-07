@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/register.css">
     <script defer src="js/register.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Overlock+SC&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Registre-se</title>
 </head>
 <body>
     <img id="img-login" src="img/backgroundLogin.png.jpg" alt="">
@@ -17,17 +17,22 @@
            Hi there👋 Welcome aboard to ApolloAI, your personal assistant powered by cutting-edge AI technology! Whether you're here to explore, learn, or seek assistance, I'm here to help you navigate through your queries and tasks seamlessly.
         </p>
     </div>
-    <div class="container">
-        <h2>Register</h2>
-        <form id="registerForm">
-            <label for="regUsername">Username:</label><br>
-            <input type="text" id="regUsername" name="regUsername"><br>
-            <label for="regPassword">Password:</label><br>
-            <input type="password" id="regPassword" name="regPassword"><br>
-            <label for="regEmail">Email:</label><br> <!-- Adicionando o campo de e-mail -->
-            <input type="email" id="regEmail" name="regEmail"><br><br> <!-- Adicionando o campo de e-mail -->
-            <button type="submit">Register</button>
-        </form>
-    </div>
+    <section class="register">
+       <div class="welcome-message">
+       </div>
+
+        <div class="container">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="regUsername">Username:</label><br>
+                <input type="text" id="regUsername" name="regUsername"><br>
+                <label for="regPassword">Password:</label><br>
+                <input type="password" id="regPassword" name="regPassword"><br>
+                <label for="regEmail">Email:</label><br> 
+                <input type="email" id="regEmail" name="regEmail"><br><br> 
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </section>
 </body>
 </html>

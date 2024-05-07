@@ -1,7 +1,7 @@
 function displayWelcomeMessage() {
     const welcomeMessageContainer = document.querySelector('.welcome-message');
     const welcomeMessageHTML = `
-        <h1>Welcome to ApolloAI! 🚀🌟</h1>
+        <h1>Welcome to ApolloAICat! 🚀🌟</h1>
         <p>Hello there! 👋 Welcome to ApolloAI, your trusted AI companion! Whether you're here to explore, learn, or seek assistance, I'm here to help you navigate through your queries and tasks seamlessly.</p>
         <p>Here are a few tips to get you started:</p>
         <ol>
@@ -40,10 +40,10 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
             body: JSON.stringify({ username, password })
         });
 
-        const data = await response.json();
-        alert(data.message);
+      const data = await response.json();
+         alert(data.message)
         if (response.ok) {
-            // Redirect or do something after successful login
+             window.location.href = './index.html';
         }
     } catch (error) {
         console.error('Error:', error);
