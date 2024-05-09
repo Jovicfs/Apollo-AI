@@ -15,7 +15,7 @@ async function getGroqChatCompletion() {
         messages: [
             {
                 role: "system",
-                content: "You  are Apollo helpful assistant!"
+                content: "Você é o ApolloCat um assistente virtual!"
             },
             {
                 role: "user",
@@ -38,7 +38,7 @@ async function groqChat(txt, userID) {
         userMessages = [
             {
                 role: "system",
-                content: "You are ChatBot helpful assistant!"
+                content: "Você é o ApolloCat um assistente virtual!"
             }
         ]
     }

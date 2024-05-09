@@ -32,14 +32,14 @@ html,body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(29, 28, 28);
+    background-color:#141414;
 }
 
 .Chat-Bot {
     position: relative;
     width: 100%;
     max-width: 500px;
-    height: 94vh;
+    height: 100vh;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -92,7 +92,8 @@ div#chatHistory {
 }
 
 .msg-txt {
-    width: 90%;
+    margin-left: 3%;
+    width: 100%;
 }
 .msg-img.ai {
     background-image: url(../img/ChatBot.jpg);
@@ -108,14 +109,13 @@ div#chatHistory {
     background-position: center;
 }
 .msg-container-ai{
-    min-width: 100px;
+    min-width: 50px;
     background-color: #5e5b5b;
     display: flex;
     color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: justify;
     padding: 10px;
     border-radius: 10px;
 }
@@ -154,6 +154,15 @@ div#chatHistory {
 #sendmsg{
     position: absolute;
     background: #146454;
-    padding: 10px;
-    right: 9%;
+    padding: 10px ;
+    right: 5%;
+}
+
+@media screen and (max-width: 460px) {
+ #userMsg{
+    width: 100%;
+ }
+ #sendmsg{
+    right: 0;
+ }
 }

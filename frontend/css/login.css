@@ -1,5 +1,5 @@
 body {
-    background-color: #34363e;
+    background-color: #141414;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: rgb(131,193,205) 0px 6px, rgb(94, 191, 211) 0px 6px, rgb(75, 184, 206)0px 6px, rgb(39, 165, 190) 0px 12px, rgb(28, 153, 179) 0px 15px;
 }
@@ -87,7 +87,7 @@ body {
     min-width: 350px;
     max-width: 80%; /* Adjust as needed */
     color: #34363e;
-    background-color: #ece7e5;
+    background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
     box-shadow: rgb(131,193,205) 0px 6px, rgb(94, 191, 211) 0px 6px, rgb(75, 184, 206)0px 6px, rgb(39, 165, 190) 0px 12px, rgb(28, 153, 179) 0px 15px;
@@ -179,7 +179,7 @@ button[type="submit"]:hover {
 }
 @media screen and (max-width: 1256px) {
     /* Adjust styles for smaller screens */
-    .register{
+    .login{
         width: 100%;
         height: max-content;
         display: flex;
