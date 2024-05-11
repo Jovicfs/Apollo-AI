@@ -1,28 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script defer src="js/index.js"></script>
-    <title>ChatBot</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/button.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script defer src="js/index.js"></script>
+        <script defer src="js/background.js"></script>
+        <title>ChatBot</title>
+    </head>
 
-<body>
-    <section class="container">
-        <div class="Chat-Bot">
-            <div id="chatHistory">
+    <body>
+
+        <section class="container">
+            <!-- CHAT HISTORY -->
+            <div id="conversationHistory" class="conversation-container">
+                <div class="conversation-group">
+                    <h2 class="conversation-title">TODAY</h2>
+                    <ul class="conversation-list">
+                        <li class="conversation-message" id="clearChat">+ New Chat</li>
+                        <li class="conversation-item" id="conversations"></li>
+                        <!-- Add more conversation items here -->
+                    </ul>
+                </div>
+                <div class="conversation-group">
+                    <h2 class="conversation-title">YESTERDAY</h2>
+                    <!-- Conversation from yesterday -->
+                </div>
+                <div class="conversation-group">
+                    <h2 class="conversation-title">PREVIOUS 7 DAYS</h2>
+                    <!-- Conversations from previous 7 days -->
+                </div>
+                <div class="conversation-group">
+                    <h2 class="conversation-title">OLDER</h2>
+                    <!-- Older conversations -->
+                </div>
+
+                <!-- USER SIDEBAR -->
+                <input type="file" id="upload" accept="image/*">
+                <select id="predefined-backgrounds">
+                    <option disabled selected>Select Wallpaper</option>
+                    <option value="./img/Background-black.jpg">Black</option>
+                    <option value="./img/Background-white.jpg">White</option>
+                    <option value="./img/Background-blue.jpg">Blue</option>
+                    <i class="fa-solid fa-angle-down"></i>
+                </select>
+                <a href="/auth/logout">Logout</a>
             </div>
+
+            <!-- CURRENT CHAT -->
+            <div class="Chat-Bot">
+                <div id="currentConversation">
+                </div>
                 <div class="chat-bottom">
                     <input id="userMsg">
                     <button id="sendmsg"><i class="fa-solid fa-arrow-right"></i></button>
-                </input>
-
+                    </input>
                 </div>
+            </div>
+        </section>
+    </body>
 
-        </div>
-    </section>
-</body>
 </html>

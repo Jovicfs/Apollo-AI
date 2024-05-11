@@ -15,8 +15,16 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    backgroundImageUrl: {
+        type: String
+    },
     isAdmin: {
         type: Boolean,
+        required: false,
+        default: false
+    },
+    userConversations: {
+        type: String,
         required: false,
         default: false
     }

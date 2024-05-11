@@ -4,26 +4,33 @@
     box-sizing: border-box;
 }
 
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-html,body {
+html, body {
     height: 100%;
     font-family: "Poppins", sans-serif;
 }
 
 ::-webkit-scrollbar {
-    width: 6px; /* Width of the scrollbar */
+    width: 6px;
+    /* Width of the scrollbar */
     border-radius: 10px;
-    
-  }
-  
+
+}
+
 .container::-webkit-scrollbar-thumb {
-    background-color: #128C7E; /* Color of the thumb */
+    background-color: #128C7E;
+    /* Color of the thumb */
     height: 80px;
     border-radius: 10px;
-    overflow: hidden; /* Rounded corners of the thumb */
-  }
-  
- 
+    overflow: hidden;
+    /* Rounded corners of the thumb */
+}
+
+
 
 
 .container {
@@ -32,19 +39,77 @@ html,body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#141414;
+    background-color: #141414;
+}
+.conversation-container {
+    width: 20%;
+    height: 100vh;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    color: white;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.conversation-group {
+    margin-bottom: 20px;
+}
+
+.conversation-title {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #888;
+    padding-bottom: 5px;
+}
+
+.conversation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.conversation-item {
+    margin-bottom: 10px;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+.conversation-message {
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background .16s ease;
+    cursor: pointer;
+    display: flex;
+}
+
+.conversation-message:hover {
+    background: #2f2f2f;
+}
+
+button#sendmsg {
+    cursor: pointer;
+}
+
+button#sendmsg[disabled] {
+    cursor: no-drop;
 }
 
 .Chat-Bot {
     position: relative;
-    width: 100%;
-    max-width: 500px;
+    width: 80%;
     height: 100vh;
     border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-image: url(../img/Background-black.jpg);
-    border: 1px solid black;
 }
 
 .msg-name {
@@ -62,6 +127,7 @@ html,body {
     display: flex;
     gap: 0 8px;
     padding: 20px;
+    max-width: 520px;
 }
 
 .chat-bottom {
@@ -85,14 +151,13 @@ button#sendmsg {
     color: white;
 }
 
-div#chatHistory {
+div#currentConversation {
     max-height: 100%;
     overflow-y: auto;
-    padding-bottom: 40px;
+    padding-bottom: 90px;
 }
 
 .msg-txt {
-    margin-left: 3%;
     width: 100%;
 }
 .msg-img.ai {
@@ -108,9 +173,20 @@ div#chatHistory {
     background-repeat: no-repeat;
     background-position: center;
 }
-.msg-container-ai{
+.msg-container-ai {
     min-width: 50px;
     background-color: #5e5b5b;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 15px 12px 12px;
+    border-radius: 10px;
+}
+.msg-container-you {
+    min-width: 50px;
+    background-color: #146454;
     display: flex;
     color: white;
     flex-direction: column;
@@ -119,25 +195,15 @@ div#chatHistory {
     padding: 10px;
     border-radius: 10px;
 }
-.msg-container-you{
-    min-width: 50px;
-    background-color: #146454;
-    display: flex;
-    color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px ;
-    border-radius: 10px;
-}
-.chat-bottom{
+.chat-bottom {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3px;
+    background-color: #222222;
+    padding: 20px 0 15px 0;
 }
-#userMsg{
+#userMsg {
     width: 100%;
     position: relative;
     color: white;
@@ -149,20 +215,33 @@ div#chatHistory {
     border-style: none;
     border-color: Transparent;
     overflow: auto;
-   outline: none;
+    outline: none;
 }
-#sendmsg{
+#sendmsg {
     position: absolute;
     background: #146454;
-    padding: 10px ;
+    padding: 10px;
     right: 5%;
 }
 
 @media screen and (max-width: 460px) {
- #userMsg{
-    width: 100%;
- }
- #sendmsg{
-    right: 0;
- }
+    #userMsg {
+        width: 100%;
+    }
+    #sendmsg {
+        right: 0;
+    }
+}
+
+span.trash-icon {
+    height: fit-content;
+    padding: 5px;
+    background: #2d2d2d;
+    border-radius: 50%;
+    transition: background .16s ease;
+    user-select: none;
+}
+
+span.trash-icon:hover {
+    background: #212020;
 }

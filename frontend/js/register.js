@@ -19,7 +19,7 @@ function displayWelcomeMessage() {
 
     const LoginLink = document.querySelector('.register-link');
     LoginLink.addEventListener('click', function() {
-        window.location.href = './login.html';
+        window.location.href = '/login';
     });
 }
 
@@ -32,7 +32,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     const email = document.getElementById('regEmail').value; // Adicione essa linha para capturar o valor do campo de e-mail
 
     try {
-        const response = await fetch('http://localhost:3333/auth/register', {
+        const response = await fetch('/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -42,8 +42,8 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
 
         const data = await response.json();
         alert(data.message)
-        if (data.response.ok) {
-           window.location.href = './login.html'
+        if (response.ok) {
+           window.location.href = '/login'
         }
     } catch (error) {
         console.error('Error:', error);

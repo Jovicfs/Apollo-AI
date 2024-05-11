@@ -17,8 +17,8 @@ function displayWelcomeMessage() {
     welcomeMessageContainer.innerHTML = welcomeMessageHTML;
 
     const registerLink = document.querySelector('.register-link');
-    registerLink.addEventListener('click', function() {
-        window.location.href = './register.html';
+    registerLink.addEventListener('click', function () {
+        window.location.href = '/register';
     });
 }
 
@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('http://localhost:3333/auth/login', {
+        const response = await fetch('/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,10 +40,11 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
             body: JSON.stringify({ username, password })
         });
 
-      const data = await response.json();
-         alert(data.message)
+        const data = await response.json();
         if (response.ok) {
-             window.location.href = './index.html';
+            window.location.href = '/';
+        } else {
+            alert(data.message);
         }
     } catch (error) {
         console.error('Error:', error);
