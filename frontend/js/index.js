@@ -160,9 +160,15 @@ async function sendMessage() {
     // Rolando para baixo para exibir a última mensagem
     document.getElementById('currentConversation').scrollTop = document.getElementById('currentConversation').scrollHeight;
 }
-
+const msgForm =  document.getElementById('msgForm');
 // Adiciona um ouvinte de eventos ao botão de enviar mensagem
-document.getElementById('sendmsg').addEventListener('click', sendMessage);
+document.getElementById('sendmsg').addEventListener('click', (e) =>{
+     e.preventDefault();
+     sendMessage();
+     msgForm.reset();
+});
+
+
 
 // Adiciona um ouvinte de eventos ao campo de entrada de texto
 document.getElementById('userMsg').addEventListener('keypress', function (e) {
@@ -176,6 +182,7 @@ document.getElementById('userMsg').addEventListener('keypress', function (e) {
 });
 
 document.getElementById('clearChat').addEventListener('click', function () {
+    
     document.getElementById('currentConversation').innerHTML = '';
     currentGlobalConversationID = undefined;
 });
@@ -192,9 +199,29 @@ async function fetchConversationHistory() {
         window.location.href = '/auth/logout';
         return;
     }
-    for (const conversationID of Object.keys(outputJson).reverse()) {
-        const conversation = outputJson[conversationID];
+    for (const conversationID of Object.keys(outputJson.userConversations).reverse()) {
+        const conversation = outputJson.userConversations[conversationID];
         createConversationButton(conversation, conversationID);
     }
+    // console.log(outputJson.username, outputJson.email)
+    document.getElementById('my-user').textContent = outputJson.username;
 }
 fetchConversationHistory();
+
+document.getElementById('my-user').addEventListener('click', function () {
+    document.getElementById('user-menu').classList.toggle('show-menu');
+});
+
+
+const menuButton = document.getElementById('menuButton');
+const menu = document.querySelector('.conversation-container');
+
+let isMenuVisible = false;
+
+menuButton.addEventListener('click', function() {
+  isMenuVisible = !isMenuVisible;
+  menu.classList.toggle('menu-visible', isMenuVisible);
+  menu.classList.toggle('menu-fixed', isMenuVisible);
+});
+
+

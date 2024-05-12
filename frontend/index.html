@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/button.css">
+        <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <script defer src="js/index.js"></script>
         <script defer src="js/background.js"></script>
@@ -14,7 +14,7 @@
 
     <body>
 
-        <section class="container">
+        <section id="menuContainer" class="container">
             <!-- CHAT HISTORY -->
             <div id="conversationHistory" class="conversation-container">
                 <div class="conversation-group">
@@ -39,26 +39,44 @@
                 </div>
 
                 <!-- USER SIDEBAR -->
-                <input type="file" id="upload" accept="image/*">
-                <select id="predefined-backgrounds">
-                    <option disabled selected>Select Wallpaper</option>
-                    <option value="./img/Background-black.jpg">Black</option>
-                    <option value="./img/Background-white.jpg">White</option>
-                    <option value="./img/Background-blue.jpg">Blue</option>
-                    <i class="fa-solid fa-angle-down"></i>
-                </select>
-                <a href="/auth/logout">Logout</a>
+                <section class="nav-container">
+                    <nav class="menu-nav" id="user-menu">
+                        <ul>
+                            <li><a href="#">User Email</a></li>
+                            <li><a href="#">Customize ApolloChat</a></li>
+                            <li><a href="#">Dark Mode</a></li>
+                            <li><a href="/auth/logout">Log out</a></li>
+                        </ul>
+                    </nav>
+                    <select id="predefined-backgrounds" class="select-backgrounds">
+                        <option disabled selected>Select Wallpaper</option>
+                        <option value="./img/Background-black.jpg">Black</option>
+                        <option value="./img/Background-white.jpg">White</option>
+                        <option value="./img/Background-blue.jpg">Blue</option>
+                    </select>
+                   </section>
+                   <section class="userInterface">
+                    <div id="my-user">Loading...</div>
+                    <div class="upload">
+                        <input type="file" id="upload" accept="image/*">
+                        <label for="upload">Choose File</label>
+                        <span class="file-input-name"></span>
+                        <button class="file-input-btn">Upload</button>
+                    </div>
+                </section>
             </div>
-
             <!-- CURRENT CHAT -->
             <div class="Chat-Bot">
                 <div id="currentConversation">
                 </div>
                 <div class="chat-bottom">
-                    <input id="userMsg">
-                    <button id="sendmsg"><i class="fa-solid fa-arrow-right"></i></button>
+                    <button id="menuButton" href=""><i id="menu-icon" class="fa-solid fa-bars-staggered"></i></button>
+                    <form id="msgForm" action="">
+                        <input id="userMsg">
                     </input>
-                </div>
+                    <button id="sendmsg"><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                 </div>
             </div>
         </section>
     </body>

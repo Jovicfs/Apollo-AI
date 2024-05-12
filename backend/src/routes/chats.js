@@ -36,7 +36,6 @@ router.post('/ai', async (req, res) => {
 
         // create new conversations:
         if (!userConversations || !userConversations[conversationID]) {
-            console.log("conversation not found, creating a new one...", conversationID)
             if (!userConversations) userConversations = {};
             conversationID = uuidv4();
             userConversations[conversationID] = [
@@ -55,7 +54,7 @@ router.post('/ai', async (req, res) => {
         const aiResponse = await groq.chat.completions.create({
             messages: userConversations[conversationID],
             temperature: 0,
-            max_tokens:1000,
+            max_tokens:8192,
             model: "llama3-70b-8192"
         })
         const aiResponseMessage = aiResponse.choices[0].message.content;
@@ -123,7 +122,11 @@ router.get('/load', async (req, res) => {
         const updatedUser = await User.findOne({ _id: userId });
         const userConversations = updatedUser.userConversations;
         if (userConversations) {
-            res.json(JSON.parse(userConversations));
+            res.json({
+                userConversations: JSON.parse(userConversations),
+                username: updatedUser.username,
+                email: updatedUser.email
+            });
         } else {
             res.json({ ok: false });
         }

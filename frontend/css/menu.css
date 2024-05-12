@@ -1,0 +1,234 @@
+.nav-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.userInterface{
+  position: absolute;
+  bottom: 2px;
+ }
+ 
+.conversation-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    flex-direction: column;
+    max-width: 16vw;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #302f2f;
+    background-color: #222;
+    color: white;
+    box-shadow: 0 0 10px rgba(165, 164, 164, 0.1);
+  }
+  
+  .menu-visible {
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .menu-fixed {
+    position: fixed;
+    top: 0;
+    left: 20px;
+  }
+
+
+.conversation-group {
+    margin-bottom: 20px;
+}
+
+.conversation-title {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #302f2f;
+    padding-bottom: 5px;
+}
+
+.conversation-list {
+    font-size: 1em;
+    text-align: start;
+    list-style: none;
+    min-width: 15vw;
+    margin: 0 auto;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+.conversation-message {
+    width: 100%;
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background .16s ease;
+    cursor: pointer;
+    display: flex;
+}
+
+.conversation-message:hover {
+    background: #2f2f2f;
+}
+
+.settings ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.settings li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.settings li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#upload {
+    display: none;
+}
+
+#upload-label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#upload-label:hover {
+    background-color: #0056b3;
+}
+
+#predefined-backgrounds {
+    margin-left: 20px;
+}
+
+#logout {
+    padding: 10px 15px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#logout:hover {
+    background-color: #c82333;
+}
+.upload input[type="file"] {
+    display: none;
+}
+
+.upload label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.upload label:hover {
+    background-color: #0056b3;
+}
+
+.upload .file-input-btn {
+    margin-left: 10px;
+    background-color: #6c757d;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload .file-input-btn:hover {
+    background-color: #5a6268;
+}
+
+.upload .file-input-name {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+nav.menu-nav {
+    display: none;
+}
+
+.upload {
+    display: none;
+}
+
+select#predefined-backgrounds {
+    display: none;
+}
+
+div#my-user::before {
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-image: url(../img/Player.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+}
+
+div#my-user {
+    position: relative;
+    width: 100%;
+    max-width: 20vw !important;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 9px;
+    transition: background .16s ease;
+    padding: 15px 60px;
+}
+
+div#my-user:hover {
+    background: #2f2f2f;
+}
+
+section.user-menu {
+    width: 100%;
+}
+
+.show-menu {
+    display: flex!important;
+}
+
+nav#user-menu {
+    position: absolute;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    left: 60%;
+    bottom: 14%;
+    z-index: 111;
+}
+
+section.user-menu {
+    position: relative;
+}
+
+.user-menu a {
+    color: blue;
+}
+
+.user-menu li {
+    width: 100%;
+    padding: 10px;
+    background: black;
+}
