@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         reader.readAsDataURL(file);
     });
 
-    // Event listener for changing the image via the predefined backgrounds select
+    // Evento para mudar as imagens predefinidas
     selectBackground.addEventListener('change', function(event) {
         const selectedBackground = event.target.value;
         chatContainer.style.backgroundImage = `url(${selectedBackground})`;

@@ -7,18 +7,20 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script  defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script defer src="js/index.js"></script>
         <script defer src="js/background.js"></script>
         <title>ChatBot</title>
     </head>
 
     <body>
-
         <section id="menuContainer" class="container">
             <!-- CHAT HISTORY -->
             <div id="conversationHistory" class="conversation-container">
                 <div class="conversation-group">
-                    <h2 class="conversation-title">TODAY</h2>
+                    <h2 class="conversation-title">TODAY</h2> 
+                    <button id="menuButtonX"><i class="fa-solid fa-xmark"></i></button>
                     <ul class="conversation-list">
                         <li class="conversation-message" id="clearChat">+ New Chat</li>
                         <li class="conversation-item" id="conversations"></li>
@@ -62,6 +64,7 @@
                         <label for="upload">Choose File</label>
                         <span class="file-input-name"></span>
                         <button class="file-input-btn">Upload</button>
+                        
                     </div>
                 </section>
             </div>

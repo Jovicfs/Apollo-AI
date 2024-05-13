@@ -9,11 +9,11 @@
  }
  
 .conversation-container {
-    display: flex;
     align-items: start;
     justify-content: space-around;
+    position: fixed;
     flex-direction: column;
-    max-width: 16vw;
+    max-width: 15vw;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -26,13 +26,16 @@
   .menu-visible {
     height: 100vh;
     width: 100%;
+    min-width: 15vw;
   }
   
   .menu-fixed {
     position: fixed;
     top: 0;
-    left: 20px;
+    left: 0;
+    z-index: 100;
   }
+
 
 
 .conversation-group {
@@ -73,20 +76,6 @@
     background: #2f2f2f;
 }
 
-.settings ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.settings li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.settings li a {
-    text-decoration: none;
-    color: #333;
-}
 
 #upload {
     display: none;
@@ -201,34 +190,50 @@ div#my-user:hover {
     background: #2f2f2f;
 }
 
-section.user-menu {
-    width: 100%;
-}
 
 .show-menu {
     display: flex!important;
 }
 
-nav#user-menu {
+#user-menu {
+    width: 15vw;
+    height: 15vh;
     position: absolute;
     background: white;
     padding: 20px;
     border-radius: 20px;
-    left: 60%;
-    bottom: 14%;
+    left: 40%;
+    bottom: 70%;
     z-index: 111;
 }
 
-section.user-menu {
-    position: relative;
+#user-menu ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.user-menu a {
-    color: blue;
-}
-
-.user-menu li {
+#user-menu li{ 
     width: 100%;
-    padding: 10px;
-    background: black;
+    cursor: pointer;
+    height: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-right: 20px;
+}
+
+#user-menu li a {
+    text-decoration: none;
+    margin: 3px;
+    color: #333;
+}
+
+@media screen and (max-width: 1280px){
+    .conversation-container{
+        max-width: 53vw !important;
+    }
+    div#my-user{
+        max-width: 48vw !important; 
+    }
 }

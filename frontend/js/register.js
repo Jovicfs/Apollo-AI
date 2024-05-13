@@ -29,7 +29,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     e.preventDefault();
     const username = document.getElementById('regUsername').value;
     const password = document.getElementById('regPassword').value;
-    const email = document.getElementById('regEmail').value; // Adicione essa linha para capturar o valor do campo de e-mail
+    const email = document.getElementById('regEmail').value;   // Adicione essa linha para capturar o valor do campo de e-mail
 
     try {
         const response = await fetch('/auth/register', {
@@ -49,3 +49,5 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
         console.error('Error:', error);
     }
 });
+
+

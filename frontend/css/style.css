@@ -123,6 +123,19 @@ button#sendmsg {
     cursor: pointer;
 }
 
+#menuButtonX{
+position: absolute;
+color: white;
+text-align: center;
+cursor: pointer;
+background-color: #222222;
+right: 5px;
+top: 5px;
+border-radius: 5px;
+padding: 5px;
+border: none;
+
+}
 div#currentConversation {
     max-height: 100%;
     overflow-y: auto;
@@ -202,6 +215,10 @@ div#currentConversation {
     background-color: #2d2d2d;
     transition: background .16s ease;
 }
+#menuButtonX:hover{
+    background-color: #2d2d2d;
+    transition: background .16s ease;
+}
 
 
 span.trash-icon {
@@ -216,21 +233,16 @@ span.trash-icon:hover{
     background: #212020;
 }
 
-
- @media screen and (max-width: 1280px) {
-      
+ @media screen and (max-width: 1280px) {  
     ::-webkit-scrollbar {
         display: none;
       }
     #userMsg{
-        max-width: 50vw !important;
+        max-width: 40vw !important;
     }
     .Chat-Bot{
         min-width: 300px;
-    }
-    #menuButton{
-        margin-left: 4px;
-        display: inline !important;
+        overflow: hidden;
     }
     .chat-bottom{
         margin: 0;

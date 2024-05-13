@@ -224,4 +224,9 @@ menuButton.addEventListener('click', function() {
   menu.classList.toggle('menu-fixed', isMenuVisible);
 });
 
+document.getElementById('menuButtonX').addEventListener('click',function(){
+    isMenuVisible = !isMenuVisible;
+    menu.classList.toggle('menu-visible',isMenuVisible)
+    menu.classList.toggle('menu-fixed',isMenuVisible)
+})
 
