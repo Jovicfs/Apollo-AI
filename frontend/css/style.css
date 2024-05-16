@@ -53,7 +53,7 @@ button#sendmsg[disabled] {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(../img/Background-black.jpg);
+    background-image: url(../img/background.png);
 }
 
 .msg-name {

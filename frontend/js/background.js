@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectBackground = document.getElementById('predefined-backgrounds');
 
     // Function to send the image to the server
-    async function saveImageToServer(imageData) {
+    async function saveImageToServer(imageBackground) {
         // Implement the code to send the image to the server here
         try {
             const response = await fetch('/wallpaper/save', {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    imageData
+                    imageBackground
                 })
             });
             const responseJson = await response.json();
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.onload = function(e) {
-            const imageData = e.target.result;
-            chatContainer.style.backgroundImage = `url(${imageData})`;
+            const imageBackground = e.target.result;
+            chatContainer.style.backgroundImage = `url(${imageBackground})`;
             // Send the image to the server
-            saveImageToServer(imageData);
+            saveImageToServer(imageBackground);
         };
         reader.readAsDataURL(file);
     });

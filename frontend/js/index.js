@@ -207,26 +207,40 @@ async function fetchConversationHistory() {
     document.getElementById('my-user').textContent = outputJson.username;
 }
 fetchConversationHistory();
-
-document.getElementById('my-user').addEventListener('click', function () {
-    document.getElementById('user-menu').classList.toggle('show-menu');
-});
-
-
+// Função para checar se o click foi fora do menu
+  
 const menuButton = document.getElementById('menuButton');
 const menu = document.querySelector('.conversation-container');
-
 let isMenuVisible = false;
 
-menuButton.addEventListener('click', function() {
-  isMenuVisible = !isMenuVisible;
-  menu.classList.toggle('menu-visible', isMenuVisible);
-  menu.classList.toggle('menu-fixed', isMenuVisible);
+// Close the menu when users clicks on the 'X' button
+document.getElementById('menuButtonX').addEventListener('click', function() {
+    isMenuVisible = false;
+    menu.classList.remove('menu-visible');
+    menu.classList.remove('menu-fixed');
 });
 
-document.getElementById('menuButtonX').addEventListener('click',function(){
+// Event listener for the menu button
+menuButton.addEventListener('click', function(event) {
+    // Toggle menu visibility
     isMenuVisible = !isMenuVisible;
-    menu.classList.toggle('menu-visible',isMenuVisible)
-    menu.classList.toggle('menu-fixed',isMenuVisible)
-})
+    menu.classList.toggle('menu-visible', isMenuVisible);
+    menu.classList.toggle('menu-fixed', isMenuVisible);
+});
 
+// Event listener for document clicks
+document.addEventListener('click', function(event) {
+    // Check if the clicked element is outside of the menu and menu button
+    const target = event.target;
+    if (!menu.contains(target) && target !== menuButton && isMenuVisible) {
+        
+        
+        menu.classList.remove('menu-visible');
+        menu.classList.remove('menu-fixed');
+    }
+});
+
+// Other event listeners remain unchanged
+document.getElementById('my-user').addEventListener('click', function() {
+    document.getElementById('user-menu').classList.toggle('show-menu');
+});

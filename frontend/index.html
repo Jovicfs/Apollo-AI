@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <script  defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script defer src="js/index.js"></script>
         <script defer src="js/background.js"></script>
+        <script defer src="js/index.js"></script>
+        <script defer src="js/profile.js"></script>
         <title>ChatBot</title>
     </head>
 
@@ -42,30 +43,17 @@
 
                 <!-- USER SIDEBAR -->
                 <section class="nav-container">
+                   </section>
+                   <section class="userInterface">
                     <nav class="menu-nav" id="user-menu">
                         <ul>
-                            <li><a href="#">User Email</a></li>
-                            <li><a href="#">Customize ApolloChat</a></li>
-                            <li><a href="#">Dark Mode</a></li>
+                            <li><a id="useremail">User Email</a></li>
+                            <li><a id="customize">User Preference</a></li>
+                            <li><a id="changetheme">Theme</a></li>
                             <li><a href="/auth/logout">Log out</a></li>
                         </ul>
                     </nav>
-                    <select id="predefined-backgrounds" class="select-backgrounds">
-                        <option disabled selected>Select Wallpaper</option>
-                        <option value="./img/Background-black.jpg">Black</option>
-                        <option value="./img/Background-white.jpg">White</option>
-                        <option value="./img/Background-blue.jpg">Blue</option>
-                    </select>
-                   </section>
-                   <section class="userInterface">
                     <div id="my-user">Loading...</div>
-                    <div class="upload">
-                        <input type="file" id="upload" accept="image/*">
-                        <label for="upload">Choose File</label>
-                        <span class="file-input-name"></span>
-                        <button class="file-input-btn">Upload</button>
-                        
-                    </div>
                 </section>
             </div>
             <!-- CURRENT CHAT -->
@@ -82,6 +70,36 @@
                  </div>
             </div>
         </section>
+        <div class="customize-menu">
+            <div class="menu-container">
+                <h3>Alterar Background</h3>
+                <select id="predefined-backgrounds" class="select-backgrounds">
+                    <option disabled selected>Select Wallpaper</option>
+                    <option value="./img/Background-black.jpg">Black</option>
+                    <option value="./img/Background-white.jpg">White</option>
+                    <option value="./img/Background-blue.jpg">Blue</option>
+                </select>
+                <div class="upload">
+                    <input type="file" id="upload" accept="image/*">
+                    <label for="upload">Choose File</label>
+                    <span class="file-input-name"></span>
+                    <button class="file-input-btn">Upload</button>
+                    
+                </div>
+                <h3>Alterar Imagem de perfil</h3>
+                <select id="predefined-userImages" class="select-backgrounds">
+                    <option disabled selected>Select UserImage</option>
+                    <option value="./img/Background-black.jpg">Black</option>
+                    <option value="./img/Background-white.jpg">White</option>
+                    <option value="./img/Background-blue.jpg">Blue</option>
+                </select>
+                <div class="uploadProfile">
+                    <input type="file" id="uploadProfile" accept="image/*">
+                    <label for="uploadProfile">Choose File</label>
+                    <span class="file-input-name"></span>
+                    <button class="file-input-btn">Upload</button>
+                </div>
+            </div>
+            </div>
     </body>
-
 </html>
