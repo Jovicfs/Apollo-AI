@@ -1,18 +1,22 @@
-let currentGlobalConversationID;
-let allConversations = {};
+let currentGlobalConversationID; // Variável para armazenar o ID da conversa atual
+let allConversations = {}; // Objeto para armazenar todas as conversas
 
-document.getElementById('userMsg').focus();
+document.getElementById('userMsg').focus(); // Foca o campo de mensagem do usuário ao carregar a página
 
 function createConversationButton(conversation, conversationID, createFromTop = false) {
-    const conversations = document.getElementById('conversations');
-    const btnConversation = document.createElement('p');
-    btnConversation.classList.add('conversation-message');
-    const conversationSubject = document.createElement('span');
-    conversationSubject.textContent = conversationID;
-    btnConversation.append(conversationSubject);
-    const deleteConversationBtn = document.createElement('span');
-    deleteConversationBtn.classList.add('trash-icon');
-    deleteConversationBtn.textContent = '🗑️';
+    const conversations = document.getElementById('conversations'); // Obtém o elemento que contém a lista de conversas
+    const btnConversation = document.createElement('p'); // Cria um elemento de parágrafo para a nova conversa
+    btnConversation.classList.add('conversation-message'); // Adiciona a classe CSS para estilização
+
+    // Exibindo o conteúdo da última mensagem em vez do ID da conversa
+    const conversationSubject = document.createElement('span'); // Cria um span para o assunto da conversa
+    const lastMessage = conversation.length > 0 ? conversation[conversation.length - 1].content : 'Nova Conversa'; // Obtém a última mensagem da conversa
+    conversationSubject.textContent = lastMessage; // Define o texto do span como a última mensagem
+    btnConversation.append(conversationSubject); // Adiciona o span ao parágrafo
+
+    const deleteConversationBtn = document.createElement('span'); // Cria um span para o botão de excluir
+    deleteConversationBtn.classList.add('trash-icon'); // Adiciona a classe CSS para o ícone de lixo
+    deleteConversationBtn.textContent = '🗑️'; // Define o texto do botão de excluir como um ícone de lixo
     deleteConversationBtn.addEventListener('click', async function () {
         try {
             const response = await fetch('/chats/delete', {
@@ -26,34 +30,34 @@ function createConversationButton(conversation, conversationID, createFromTop = 
             });
             const outputJson = await response.json();
             if (outputJson.ok) {
-                btnConversation.remove();
+                btnConversation.remove(); // Remove o botão da conversa da lista
                 if (conversationID === currentGlobalConversationID) {
-                    document.getElementById('currentConversation').innerHTML = '';
+                    document.getElementById('currentConversation').innerHTML = ''; // Limpa a conversa atual
                 }
-                delete allConversations[conversationID];
-                document.getElementById('userMsg').focus();
+                delete allConversations[conversationID]; // Remove a conversa do objeto allConversations
+                document.getElementById('userMsg').focus(); // Foca o campo de mensagem do usuário
             } else {
-                alert("Error while deleting...");
+                alert("Error while deleting..."); // Alerta em caso de erro
             }
         } catch (err) {
-            console.error(err);
+            console.error(err); // Loga o erro no console
         }
     });
-    btnConversation.append(deleteConversationBtn);
-    allConversations[conversationID] = conversation;
+    btnConversation.append(deleteConversationBtn); // Adiciona o botão de excluir ao parágrafo
+    allConversations[conversationID] = conversation; // Adiciona a conversa ao objeto allConversations
     if (createFromTop) {
-        conversations.prepend(btnConversation);
+        conversations.prepend(btnConversation); // Adiciona a conversa ao topo da lista
     } else {
-        conversations.append(btnConversation);
+        conversations.append(btnConversation); // Adiciona a conversa ao final da lista
     }
     conversationSubject.addEventListener('click', function () {
-        document.getElementById('userMsg').disabled = true;
-        document.getElementById('sendmsg').disabled = true;
-        currentGlobalConversationID = conversationID;
-        document.getElementById('currentConversation').innerHTML = '';
-        for (const msg of allConversations[conversationID]) {
-            if (msg.role != 'system') {
-                if (msg.role == 'user') {
+        document.getElementById('userMsg').disabled = true; // Desabilita o campo de mensagem do usuário
+        document.getElementById('sendmsg').disabled = true; // Desabilita o botão de enviar mensagem
+        currentGlobalConversationID = conversationID; // Define a conversa atual
+        document.getElementById('currentConversation').innerHTML = ''; // Limpa a conversa atual
+        for (const msg of allConversations[conversationID]) { // Itera sobre todas as mensagens da conversa
+            if (msg.role !== 'system') { // Ignora mensagens do sistema
+                if (msg.role === 'user') {
                     document.getElementById('currentConversation').innerHTML += `
                     <div class="single-msg">
                         <div class="msg-img you"></div>
@@ -64,7 +68,7 @@ function createConversationButton(conversation, conversationID, createFromTop = 
                         </div>
                     </div>
                     `;
-                } else if (msg.role == 'assistant') {
+                } else if (msg.role === 'assistant') {
                     document.getElementById('currentConversation').innerHTML += `
                     <div class="single-msg">
                         <div class="msg-img ai"></div>
@@ -78,9 +82,9 @@ function createConversationButton(conversation, conversationID, createFromTop = 
                 }
             }
         }
-        document.getElementById('userMsg').disabled = false;
-        document.getElementById('sendmsg').disabled = false;
-        document.getElementById('userMsg').focus();
+        document.getElementById('userMsg').disabled = false; // Habilita o campo de mensagem do usuário
+        document.getElementById('sendmsg').disabled = false; // Habilita o botão de enviar mensagem
+        document.getElementById('userMsg').focus(); // Foca o campo de mensagem do usuário
         // Rolando para baixo para exibir a última mensagem
         document.getElementById('currentConversation').scrollTop = document.getElementById('currentConversation').scrollHeight;
     });
@@ -97,8 +101,8 @@ async function sendMessage() {
         return;
     }
 
-    document.getElementById('userMsg').disabled = true;
-    document.getElementById('sendmsg').disabled = true;
+    document.getElementById('userMsg').disabled = true; // Desabilita o campo de mensagem do usuário
+    document.getElementById('sendmsg').disabled = true; // Desabilita o botão de enviar mensagem
     // Exibindo a mensagem do usuário no histórico de bate-papo
     document.getElementById('currentConversation').innerHTML += `
     <div class="single-msg">
@@ -113,8 +117,6 @@ async function sendMessage() {
 
     // Limpa o campo de entrada após o envio da mensagem
     document.getElementById('userMsg').value = '';
-    document.getElementById('userMsg').disabled = false;
-    document.getElementById('sendmsg').disabled = false;
 
     // Enviando a mensagem para o servidor
     const response = await fetch('/chats/ai', {
@@ -131,11 +133,11 @@ async function sendMessage() {
     // Processando a resposta do servidor
     const outputJson = await response.json();
 
-    // document.title = outputJson.id;
     if (!allConversations[outputJson.id]) {
         allConversations[outputJson.id] = [];
-        createConversationButton(allConversations[outputJson.id], outputJson.id, true)
+        createConversationButton(allConversations[outputJson.id], outputJson.id, true);
     }
+
     allConversations[outputJson.id].push({
         role: 'user',
         content: text,
@@ -144,6 +146,14 @@ async function sendMessage() {
         role: 'assistant',
         content: outputJson.text,
     });
+
+    // Atualizando o texto do botão da conversa para a última mensagem
+    const conversationButton = Array.from(document.querySelectorAll('.conversation-message')).find(
+        el => el.textContent.includes(currentGlobalConversationID)
+    );
+    if (conversationButton) {
+        conversationButton.querySelector('span').textContent = outputJson.text;
+    }
 
     // Exibindo a resposta do servidor no histórico de bate-papo
     document.getElementById('currentConversation').innerHTML += `
@@ -157,18 +167,20 @@ async function sendMessage() {
     </div>
     `;
 
+    document.getElementById('userMsg').disabled = false; // Habilita o campo de mensagem do usuário
+    document.getElementById('sendmsg').disabled = false; // Habilita o botão de enviar mensagem
+    document.getElementById('userMsg').focus(); // Foca o campo de mensagem do usuário
     // Rolando para baixo para exibir a última mensagem
     document.getElementById('currentConversation').scrollTop = document.getElementById('currentConversation').scrollHeight;
 }
-const msgForm =  document.getElementById('msgForm');
+
+const msgForm = document.getElementById('msgForm');
 // Adiciona um ouvinte de eventos ao botão de enviar mensagem
-document.getElementById('sendmsg').addEventListener('click', (e) =>{
-     e.preventDefault();
-     sendMessage();
-     msgForm.reset();
+document.getElementById('sendmsg').addEventListener('click', (e) => {
+    e.preventDefault();
+    sendMessage();
+    msgForm.reset();
 });
-
-
 
 // Adiciona um ouvinte de eventos ao campo de entrada de texto
 document.getElementById('userMsg').addEventListener('keypress', function (e) {
@@ -182,7 +194,6 @@ document.getElementById('userMsg').addEventListener('keypress', function (e) {
 });
 
 document.getElementById('clearChat').addEventListener('click', function () {
-    
     document.getElementById('currentConversation').innerHTML = '';
     currentGlobalConversationID = undefined;
 });
@@ -207,40 +218,35 @@ async function fetchConversationHistory() {
     document.getElementById('my-user').textContent = outputJson.username;
 }
 fetchConversationHistory();
-// Função para checar se o click foi fora do menu
-  
+
 const menuButton = document.getElementById('menuButton');
 const menu = document.querySelector('.conversation-container');
 let isMenuVisible = false;
 
-// Close the menu when users clicks on the 'X' button
+// Fecha o menu quando o usuário clica no botão 'X'
 document.getElementById('menuButtonX').addEventListener('click', function() {
     isMenuVisible = false;
     menu.classList.remove('menu-visible');
     menu.classList.remove('menu-fixed');
 });
 
-// Event listener for the menu button
+// Ouvinte de eventos para o botão do menu
 menuButton.addEventListener('click', function(event) {
-    // Toggle menu visibility
     isMenuVisible = !isMenuVisible;
     menu.classList.toggle('menu-visible', isMenuVisible);
     menu.classList.toggle('menu-fixed', isMenuVisible);
 });
 
-// Event listener for document clicks
+// Ouvinte de eventos para cliques no documento
 document.addEventListener('click', function(event) {
-    // Check if the clicked element is outside of the menu and menu button
     const target = event.target;
     if (!menu.contains(target) && target !== menuButton && isMenuVisible) {
-        
-        
         menu.classList.remove('menu-visible');
         menu.classList.remove('menu-fixed');
     }
 });
 
-// Other event listeners remain unchanged
+// Outros ouvintes de eventos permanecem inalterados
 document.getElementById('my-user').addEventListener('click', function() {
     document.getElementById('user-menu').classList.toggle('show-menu');
 });
