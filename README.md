@@ -7,4 +7,4 @@ The application leverages the power of Groq API to fetch and manipulate data,
 providing intelligent functionalities seamlessly integrated 
 into both backend and frontend components.
 
-link to test apollo AI: https://apollocatai.pages.dev/
+
