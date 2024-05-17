@@ -3,6 +3,17 @@
     align-items: center;
     position: relative;
 }
+select#predefined-backgrounds {
+    padding: 6px;
+    background-color: #282828;
+    color: white;
+}
+select#predefined-userImages {
+    padding: 6px;
+    background-color: #282828;
+    color: white;
+}
+
 
 .userInterface{
   position: absolute;
@@ -10,6 +21,7 @@
  }
 
  .customize-menu {
+    display: none;
     position: absolute;
     width: 13vw;
     top: 54%;
@@ -117,6 +129,9 @@ label:hover {
 }
 
 #predefined-backgrounds {
+    padding: 6px;
+    background-color: #282828;
+    color: white;
 }
 
 #logout {
