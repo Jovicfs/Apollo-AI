@@ -147,12 +147,14 @@ async function sendMessage() {
         content: outputJson.text,
     });
 
-    // Atualizando o texto do botão da conversa para a última mensagem
+    // Atualizando o texto do botão da conversa para a última mensagem do usuário
     const conversationButton = Array.from(document.querySelectorAll('.conversation-message')).find(
         el => el.textContent.includes(currentGlobalConversationID)
     );
     if (conversationButton) {
-        conversationButton.querySelector('span').textContent = outputJson.text;
+        const userMessages = allConversations[outputJson.id].filter(msg => msg.role === 'user');
+        const lastUserMessage = userMessages[userMessages.length - 1].content;
+        conversationButton.querySelector('span').textContent = lastUserMessage;
     }
 
     // Exibindo a resposta do servidor no histórico de bate-papo
