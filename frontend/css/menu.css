@@ -10,6 +10,7 @@
  }
 
  .customize-menu {
+    display: none;
     position: absolute;
     width: 13vw;
     top: 54%;
