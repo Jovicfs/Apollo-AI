@@ -8,7 +8,6 @@ function createConversationButton(conversation, conversationID, createFromTop = 
     const btnConversation = document.createElement('p'); // Cria um elemento de parágrafo para a nova conversa
     btnConversation.classList.add('conversation-message'); // Adiciona a classe CSS para estilização
 
-    // Exibindo o conteúdo da última mensagem em vez do ID da conversa
     const conversationSubject = document.createElement('span'); // Cria um span para o assunto da conversa
     const lastMessage = conversation.length > 0 ? conversation[conversation.length - 1].content : 'Nova Conversa'; // Obtém a última mensagem da conversa
     conversationSubject.textContent = lastMessage; // Define o texto do span como a última mensagem
@@ -152,9 +151,7 @@ async function sendMessage() {
         el => el.textContent.includes(currentGlobalConversationID)
     );
     if (conversationButton) {
-        const userMessages = allConversations[outputJson.id].filter(msg => msg.role === 'user');
-        const lastUserMessage = userMessages[userMessages.length - 1].content;
-        conversationButton.querySelector('span').textContent = lastUserMessage;
+        conversationButton.querySelector('span').textContent = text;
     }
 
     // Exibindo a resposta do servidor no histórico de bate-papo
@@ -221,6 +218,7 @@ async function fetchConversationHistory() {
 }
 fetchConversationHistory();
 
+// Função para checar se o click foi fora do menu
 const menuButton = document.getElementById('menuButton');
 const menu = document.querySelector('.conversation-container');
 let isMenuVisible = false;
