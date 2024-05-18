@@ -9,25 +9,34 @@ const groq = new Groq({
 });
 const { v4: uuidv4 } = require('uuid');
 
-const systemMsg = ` João Victor is you Creator, You are brazilian  ApolloCat you neeed to speak in portuguese, a helpful virtual assistant. Powered by advanced artificial intelligence, ApolloCat is designed to provide intelligent, logical, and reliable assistance.
-With a focus on rationality and accuracy, ApolloCat aims to assist users in managing tasks, providing information, and solving problems efficiently.
-Trust in ApolloCat's capabilities is paramount, as it operates based on sound logic and a commitment to delivering precise and reliable assistance.
+const systemMsg = 
+` João Victor is you Creator, You are
+ brazilian  ApolloCat you neeed to speak in portuguese,
+ a helpful virtual assistant. Powered by advanced artificial intelligence,
+ ApolloCat is designed to provide intelligent, logical, and reliable assistance.
+With a focus on rationality and accuracy,
+ApolloCat aims to assist users in managing tasks,
+providing information, and solving problems efficiently.
+Trust in ApolloCat's capabilities is paramount,
+as it operates based on sound logic and a commitment to delivering
+precise and reliable assistance.
 Users are encouraged to interact with ApolloCat for any assistance they may require.`;
 
 router.post('/ai', async (req, res) => {
-    // Extrair o token JWT dos cookies ou do cabeçalho da solicitação
+    // Extract token JWT  cookies  
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
     if (!token) return res.status(401).json({ message: 'Token de autenticação não fornecido!' });
 
     const txt = req.body.text;
     let conversationID = req.body.id;
     try {
-        // Decodificar o token JWT para obter as informações do usuário, incluindo o nome de usuário
+        // Decode token JWT 
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         const userID = decodedToken.id;
         // lets get the user message history (different for every user)
         const currentUser = await User.findOne({ _id: userID });
-        let userConversations = currentUser.userConversations; // currently it doesn't support multiple history conversations per user - it only supports 1 history per 1 user
+        let userConversations = currentUser.userConversations; // currently it doesn't support multiple history conversations per user - 
+                                                              //it only supports 1 history per 1 user
         if (userConversations) {
             try {
                 userConversations = JSON.parse(userConversations);
@@ -64,7 +73,8 @@ router.post('/ai', async (req, res) => {
             content: aiResponseMessage
         });
         // save it all into the memory:
-        const updatedUser = await User.findOneAndUpdate({ _id: userID }, { userConversations: JSON.stringify(userConversations) }, { new: true, upsert: true });
+        const updatedUser = await User.findOneAndUpdate({ _id: userID },
+     { userConversations: JSON.stringify(userConversations) }, { new: true, upsert: true });
         // and return the ai response:
         const aiOutput = aiResponseMessage;
         res.json({
@@ -89,7 +99,8 @@ router.post('/delete', async (req, res) => { // send a post request to /chats/de
         const userID = decodedToken.id;
         // lets get the user message history (different for every user)
         const currentUser = await User.findOne({ _id: userID });
-        let userConversations = currentUser.userConversations; // currently it doesn't support multiple history conversations per user - it only supports 1 history per 1 user
+        let userConversations = currentUser.userConversations; // currently it doesn't support multiple history conversations per user -
+                                                              // it only supports 1 history per 1 user
         if (userConversations) {
             try {
                 userConversations = JSON.parse(userConversations);
@@ -101,7 +112,8 @@ router.post('/delete', async (req, res) => { // send a post request to /chats/de
         }
         delete userConversations[conversationID];
         // save it all into the memory:
-        const updatedUser = await User.findOneAndUpdate({ _id: userID }, { userConversations: JSON.stringify(userConversations) }, { new: true, upsert: true });
+        const updatedUser = await User.findOneAndUpdate({ _id: userID },
+      { userConversations: JSON.stringify(userConversations) }, { new: true, upsert: true });
         // and return the ai response:
         res.json({ ok: true, deleted: true})
     } catch (error) {
