@@ -1,10 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menuButton = document.getElementById('menu-button');
-    const menuContainer = document.getElementById('menuContainer');
-
-    menuButton.addEventListener('click', function(e) {
-        e.preventDefault(); 
-        menuContainer.classList.toggle('show-menu'); 
-    });
+    const menuCustomizeBtn = document.getElementById('customize');
+    const menuCustomize = document.querySelector('.customize-menu')
+    let isOpen = false
+   
+        menuCustomizeBtn.addEventListener('click', function(e) {
+            isOpen = !isOpen
+            menuCustomize.style.display = 'block'
+            console.log('abriu')
+        }) 
+        
+        menuCustomizeBtn.addEventListener('click', function(e){
+            if(isOpen){
+                menuCustomize.style.display = 'none'
+            }
+        })
+      
 });
  

@@ -24,12 +24,12 @@ select#predefined-userImages {
     display: none;
     position: absolute;
     width: 13vw;
-    top: 54%;
+    top: 42%;
     height: 30vh;
     background-color: #222222;
     color: white;
     left: 0%;
-    min-width: 270px;
+    min-width: 266px;
     z-index: 50000;
     border-radius: 10px;
 }
@@ -151,7 +151,7 @@ label:hover {
 
  label {
     display: inline-block;
-    padding: 6px 15px;
+    padding: 6px 6px;
     background-color: #0f0f0f;
     color: #fff;
     cursor: pointer;
@@ -167,7 +167,7 @@ label:hover {
     margin-left: 10px;
     background-color: #0f0f0f;
     color: #fff;
-    padding: 8px 12px;
+    padding: 8px 8px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -185,13 +185,13 @@ label:hover {
 
 .menu-container{
     display:none;
-    width: 100%;
+    width: 97%;
     text-align: center;
     padding: 5px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: stretch;
+    align-content: center;
     height: 100%;
     justify-content: space-evenly;
 }
@@ -202,7 +202,7 @@ button.file-input-btn {
     margin-left: 19px;
     background-color: #0f0f0f;
     color: #fff;
-    padding: 8px 12px;
+    padding: 8px 8px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -211,7 +211,7 @@ button.file-input-btn:hover{
     background-color: #646464 ;
 }
 select#predefined-backgrounds {
-  color: black;
+  color: white;
 }
 
 div#my-user::before {

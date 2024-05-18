@@ -236,17 +236,19 @@ menuButton.addEventListener('click', function(event) {
     menu.classList.toggle('menu-visible', isMenuVisible);
     menu.classList.toggle('menu-fixed', isMenuVisible);
 });
-
+const menuCustomize = document.querySelector('.customize-menu')
 // Ouvinte de eventos para cliques no documento
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function(event){
     const target = event.target;
-    if (!menu.contains(target) && target !== menuButton && isMenuVisible) {
+    if (!menu.contains(target) && target !==  menuButton && isMenuVisible && !menuCustomize.contains(target)) {
         menu.classList.remove('menu-visible');
         menu.classList.remove('menu-fixed');
+        menuCustomize.style.display = 'none' 
     }
 });
 
 // Outros ouvintes de eventos permanecem inalterados
 document.getElementById('my-user').addEventListener('click', function() {
     document.getElementById('user-menu').classList.toggle('show-menu');
+    menuCustomize.style.display = 'none' 
 });
