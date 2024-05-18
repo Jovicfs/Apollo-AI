@@ -13,7 +13,7 @@ body {
  align-items: center;
  width: 100%;
  height: 100vh;
- background-image: url("../img/background-blue.jpg");
+ background-image: url("../img/images/astronomy-1.jpg");
  background-image: cover;
 }
 
@@ -153,6 +153,7 @@ button[type="submit"]:hover {
         align-items: center;
         justify-content: space-evenly;
         flex-direction: column-reverse;
+
     }
     .container{
         max-width: 400px;

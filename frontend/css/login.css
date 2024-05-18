@@ -15,7 +15,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    background-image: url("../img/background-blue.jpg");
+    background-image: url("../img/images/astronomy-1.jpg");
     background-image: cover;
 }
 

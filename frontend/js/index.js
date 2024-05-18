@@ -215,6 +215,7 @@ async function fetchConversationHistory() {
     }
     // console.log(outputJson.username, outputJson.email)
     document.getElementById('my-user').textContent = outputJson.username;
+    document.getElementById('useremail').textContent = outputJson.email;
 }
 fetchConversationHistory();
 

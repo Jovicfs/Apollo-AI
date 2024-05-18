@@ -86,6 +86,7 @@ select#predefined-userImages {
 }
 
 .conversation-message {
+    position: relative;
     width: 100%;
     background: #333;
     padding: 10px;
