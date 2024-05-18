@@ -14,4 +14,4 @@ First, ensure you have the necessary dependencies installed:
 
 Environment Variables: API keys and secrets are stored in environment variables for security.
 
-npm install express jsonwebtoken mongoose uuid dotenv groq-sdk
+npm install  to run this project
