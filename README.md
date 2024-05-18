@@ -8,3 +8,10 @@ providing intelligent functionalities seamlessly integrated
 into both backend and frontend components.
 
 
+Setting Up the Project
+
+First, ensure you have the necessary dependencies installed:
+
+Environment Variables: API keys and secrets are stored in environment variables for security.
+
+npm install express jsonwebtoken mongoose uuid dotenv groq-sdk
