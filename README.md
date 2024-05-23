@@ -29,6 +29,7 @@ Before you start, ensure you have the following installed:
     ```bash
     git clone https://github.com/your-username/apollo-ai.git
     cd apollo-ai
+    cd backend
     ```
 
 2. **Install Dependencies**
