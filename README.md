@@ -44,7 +44,6 @@ Before you start, ensure you have the following installed:
     Create a `.env` file in the root directory of your project and add your API keys, secrets, and MongoDB connection string. This ensures that sensitive information is kept secure and not hard-coded into your application.
 
     ```plaintext
-    AI_API_KEY=your_ai_api_key
     GROQ_API_KEY=your_groq_api_key
     MONGODB_URI=your_mongodb_connection_string
     PORT=3000
