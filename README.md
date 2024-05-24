@@ -89,9 +89,6 @@ This project is licensed under the MIT License. See the License file for more de
 - **AI API**: Thanks to the developers of the AI API for providing robust AI functionalities.
 - **Groq API**: Thanks for the powerful and flexible data querying capabilities.
 - **MongoDB**: Thanks for the scalable and secure data storage solutions.
-
-For further questions or support, feel free to contact us at support@apolloai.com.
-
 ---
 
 Thank you for using Apollo AI! We hope this project helps you integrate advanced AI functionalities into your applications seamlessly.
