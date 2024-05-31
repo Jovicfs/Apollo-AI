@@ -153,6 +153,17 @@ async function sendMessage() {
     if (conversationButton) {
         conversationButton.querySelector('span').textContent = text;
     }
+    
+    function formatCodeMessage(message) {
+    // Expressão regular para identificar trechos de código entre crases (`) 
+    const codeRegex = /`([^`]*)`/g;
+    
+    // Substitui cada trecho de código encontrado pela mesma string envolvida em tags <code>
+    const formattedMessage = message.replace(codeRegex, '<code>$1</code>');
+
+    return formattedMessage;
+}
+    const aiResponseMessage = formatCodeMessage(`${outputJson.text}`);
 
     // Exibindo a resposta do servidor no histórico de bate-papo
     document.getElementById('currentConversation').innerHTML += `
@@ -160,7 +171,7 @@ async function sendMessage() {
         <div class="msg-img ai"></div>
         <div class="msg-container-ai">
             <div class="msg-txt">
-                ${outputJson.text}
+                ${aiResponseMessage}
             </div>
         </div>
     </div>
@@ -172,6 +183,9 @@ async function sendMessage() {
     // Rolando para baixo para exibir a última mensagem
     document.getElementById('currentConversation').scrollTop = document.getElementById('currentConversation').scrollHeight;
 }
+
+
+
 
 const msgForm = document.getElementById('msgForm');
 // Adiciona um ouvinte de eventos ao botão de enviar mensagem
