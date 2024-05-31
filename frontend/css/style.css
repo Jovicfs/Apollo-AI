@@ -55,6 +55,12 @@ button#sendmsg[disabled] {
     background-position: center;
     background-image: url(../img/images/background-blue.jpg);
 }
+.code-message {
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
 
 .msg-name {
     font-weight: bold;
